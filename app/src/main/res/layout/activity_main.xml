@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/faded_yellow"
-    tools:context=".MainActivity">
+    tools:context=".activity.main.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -16,10 +16,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="18dp"
+            android:paddingStart="12dp"
             app:navigationIcon="@drawable/ic_logo"
+            app:menu="@menu/menu_main"
             app:title="@string/app_name"
             app:titleCentered="true"
             tools:ignore="RtlSymmetry" />
@@ -33,6 +35,7 @@
         android:clipChildren="false"
         android:clipToPadding="false"
         android:paddingVertical="6dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar"
         tools:listitem="@layout/item_tree" />
