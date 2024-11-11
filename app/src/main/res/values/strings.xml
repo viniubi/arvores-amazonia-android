@@ -3,4 +3,10 @@
     <string name="sobre">Sobre</string>
     <string name="atualizar">Atualizar</string>
     <string name="remover_anuncios">Remover anúncios</string>
+    <string name="biologia">Biologia</string>
+    <string name="ecologia">Ecologia</string>
+    <string name="consumo">Consumo</string>
+    <string name="cultivo">Cultivo</string>
+    <string name="referencias">Referências</string>
+    <string name="figuras">Figuras</string>
 </resources>

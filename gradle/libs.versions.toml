@@ -1,5 +1,6 @@
 [versions]
 agp = "8.7.0"
+design = "28.0.0"
 glide = "4.16.0"
 gson = "2.11.0"
 junit = "4.13.2"
@@ -16,7 +17,9 @@ navigationUi = "2.8.3"
 
 [libraries]
 androidx-room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "roomRuntime" }
+appcompat-v7 = { module = "com.android.support:appcompat-v7", version.ref = "design" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+design = { module = "com.android.support:design", version.ref = "design" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }

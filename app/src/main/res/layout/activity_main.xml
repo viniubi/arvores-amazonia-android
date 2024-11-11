@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/faded_yellow"
+    android:fitsSystemWindows="true"
     tools:context=".activity.main.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -20,8 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="12dp"
-            app:navigationIcon="@drawable/ic_logo"
             app:menu="@menu/menu_main"
+            app:navigationIcon="@drawable/ic_logo"
             app:title="@string/app_name"
             app:titleCentered="true"
             tools:ignore="RtlSymmetry" />

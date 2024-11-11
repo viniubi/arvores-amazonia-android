@@ -7,4 +7,8 @@
     </style>
 
     <style name="Theme.EcoEcho" parent="Base.Theme.EcoEcho" />
+
+    <style name="Theme.EcoEcho.TitleAppearance" parent="TextAppearance.Material3.ActionBar.Title">
+        <item name="android:textSize">34sp</item>
+    </style>
 </resources>
