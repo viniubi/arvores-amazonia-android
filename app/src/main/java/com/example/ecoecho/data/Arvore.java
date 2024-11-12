@@ -1,5 +1,6 @@
 package com.example.ecoecho.data;
 
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -14,211 +15,126 @@ public class Arvore {
     @ColumnInfo(name = "id")
     @SerializedName("id")
     private int id;
-    @ColumnInfo(name = "img_url")
-    @SerializedName("img_url")
-    private String imgUrl;
     @ColumnInfo(name = "nome")
     @SerializedName("nome")
     private String nome;
-    @ColumnInfo(name = "descricao_botanica")
-    @SerializedName("descricao_botanica")
-    private String descricaoBotanica;
-    @ColumnInfo(name = "frutificacao")
-    @SerializedName("frutificacao")
-    private String frutificacao;
-    @ColumnInfo(name = "dispersao")
-    @SerializedName("dispersao")
-    private String dispersao;
-    @ColumnInfo(name = "aspectos_ecologicos")
-    @SerializedName("aspectos_ecologicos")
-    private String aspectosEcologicos;
-    @ColumnInfo(name = "regeneracao_natural")
-    @SerializedName("regeneracao_natural")
-    private String regeneracaoNatural;
-    @ColumnInfo(name = "dados_nutricionais")
-    @SerializedName("dados_nutricionais")
-    private String dadosNutricionais;
-    @ColumnInfo(name = "formas_consumo")
-    @SerializedName("formas_consumo")
-    private String formasConsumo;
-    @ColumnInfo(name = "composicao")
-    @SerializedName("composicao")
-    private String composicao;
-    @ColumnInfo(name = "potenciais_bioprodutos")
-    @SerializedName("potenciais_bioprodutos")
-    private String potenciaisBioprodutos;
-    @ColumnInfo(name = "bioatividade")
-    @SerializedName("bioatividade")
-    private String bioatividade;
-    @ColumnInfo(name = "paisagismo")
-    @SerializedName("paisagismo")
-    private String paisagismo;
-    @ColumnInfo(name = "colheita_sementes")
-    @SerializedName("colheita_sementes")
-    private String colheitaSementes;
-    @ColumnInfo(name = "producao_mudas")
-    @SerializedName("producao_mudas")
-    private String producaoMudas;
-    @ColumnInfo(name = "transplante")
-    @SerializedName("transplante")
-    private String transplante;
-    @ColumnInfo(name = "agua")
-    @SerializedName("agua")
-    private String agua;
-    @ColumnInfo(name = "solos")
-    @SerializedName("solos")
-    private String solos;
+    @ColumnInfo(name = "descricao")
+    @SerializedName("descricao")
+    private String descricao;
+    @Nullable
+    @ColumnInfo(name = "img_url")
+    @SerializedName("img_url")
+    private String imgUrl;
+    @Nullable
+    @ColumnInfo(name = "sobre")
+    @SerializedName("sobre")
+    private String sobre;
+    @Nullable
+    @ColumnInfo(name = "biologia")
+    @SerializedName("biologia")
+    private String biologia;
+    @Nullable
+    @ColumnInfo(name = "ecologia")
+    @SerializedName("ecologia")
+    private String ecologia;
+    @Nullable
+    @ColumnInfo(name = "consumo")
+    @SerializedName("consumo")
+    private String consumo;
+    @Nullable
+    @ColumnInfo(name = "cultivo")
+    @SerializedName("cultivo")
+    private String cultivo;
+    @Nullable
+    @ColumnInfo(name = "referencias")
+    @SerializedName("referencias")
+    private String referencias;
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
     }
 
     public String getNome() {
         return nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    @Nullable
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    @Nullable
+    public String getSobre() {
+        return sobre;
+    }
+
+    @Nullable
+    public String getBiologia() {
+        return biologia;
+    }
+
+    @Nullable
+    public String getEcologia() {
+        return ecologia;
+    }
+
+    @Nullable
+    public String getConsumo() {
+        return consumo;
+    }
+
+    @Nullable
+    public String getCultivo() {
+        return cultivo;
+    }
+
+    @Nullable
+    public String getReferencias() {
+        return referencias;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public String getDescricaoBotanica() {
-        return descricaoBotanica;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public void setDescricaoBotanica(String descricaoBotanica) {
-        this.descricaoBotanica = descricaoBotanica;
+    public void setImgUrl(@Nullable String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
-    public String getFrutificacao() {
-        return frutificacao;
+    public void setSobre(@Nullable String sobre) {
+        this.sobre = sobre;
     }
 
-    public void setFrutificacao(String frutificacao) {
-        this.frutificacao = frutificacao;
+    public void setBiologia(@Nullable String biologia) {
+        this.biologia = biologia;
     }
 
-    public String getDispersao() {
-        return dispersao;
+    public void setEcologia(@Nullable String ecologia) {
+        this.ecologia = ecologia;
     }
 
-    public void setDispersao(String dispersao) {
-        this.dispersao = dispersao;
+    public void setConsumo(@Nullable String consumo) {
+        this.consumo = consumo;
     }
 
-    public String getAspectosEcologicos() {
-        return aspectosEcologicos;
+    public void setCultivo(@Nullable String cultivo) {
+        this.cultivo = cultivo;
     }
 
-    public void setAspectosEcologicos(String aspectosEcologicos) {
-        this.aspectosEcologicos = aspectosEcologicos;
-    }
-
-    public String getRegeneracaoNatural() {
-        return regeneracaoNatural;
-    }
-
-    public void setRegeneracaoNatural(String regeneracaoNatural) {
-        this.regeneracaoNatural = regeneracaoNatural;
-    }
-
-    public String getDadosNutricionais() {
-        return dadosNutricionais;
-    }
-
-    public void setDadosNutricionais(String dadosNutricionais) {
-        this.dadosNutricionais = dadosNutricionais;
-    }
-
-    public String getFormasConsumo() {
-        return formasConsumo;
-    }
-
-    public void setFormasConsumo(String formasConsumo) {
-        this.formasConsumo = formasConsumo;
-    }
-
-    public String getComposicao() {
-        return composicao;
-    }
-
-    public void setComposicao(String composicao) {
-        this.composicao = composicao;
-    }
-
-    public String getPotenciaisBioprodutos() {
-        return potenciaisBioprodutos;
-    }
-
-    public void setPotenciaisBioprodutos(String potenciaisBioprodutos) {
-        this.potenciaisBioprodutos = potenciaisBioprodutos;
-    }
-
-    public String getBioatividade() {
-        return bioatividade;
-    }
-
-    public void setBioatividade(String bioatividade) {
-        this.bioatividade = bioatividade;
-    }
-
-    public String getPaisagismo() {
-        return paisagismo;
-    }
-
-    public void setPaisagismo(String paisagismo) {
-        this.paisagismo = paisagismo;
-    }
-
-    public String getColheitaSementes() {
-        return colheitaSementes;
-    }
-
-    public void setColheitaSementes(String colheitaSementes) {
-        this.colheitaSementes = colheitaSementes;
-    }
-
-    public String getProducaoMudas() {
-        return producaoMudas;
-    }
-
-    public void setProducaoMudas(String producaoMudas) {
-        this.producaoMudas = producaoMudas;
-    }
-
-    public String getTransplante() {
-        return transplante;
-    }
-
-    public void setTransplante(String transplante) {
-        this.transplante = transplante;
-    }
-
-    public String getAgua() {
-        return agua;
-    }
-
-    public void setAgua(String agua) {
-        this.agua = agua;
-    }
-
-    public String getSolos() {
-        return solos;
-    }
-
-    public void setSolos(String solos) {
-        this.solos = solos;
+    public void setReferencias(@Nullable String referencias) {
+        this.referencias = referencias;
     }
 
     @Override
@@ -226,46 +142,11 @@ public class Arvore {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Arvore arvore = (Arvore) o;
-        return id == arvore.id
-                && Objects.equals(nome, arvore.nome)
-                && Objects.equals(descricaoBotanica, arvore.descricaoBotanica)
-                && Objects.equals(frutificacao, arvore.frutificacao)
-                && Objects.equals(dispersao, arvore.dispersao)
-                && Objects.equals(aspectosEcologicos, arvore.aspectosEcologicos)
-                && Objects.equals(regeneracaoNatural, arvore.regeneracaoNatural)
-                && Objects.equals(dadosNutricionais, arvore.dadosNutricionais)
-                && Objects.equals(formasConsumo, arvore.formasConsumo)
-                && Objects.equals(composicao, arvore.composicao)
-                && Objects.equals(potenciaisBioprodutos, arvore.potenciaisBioprodutos)
-                && Objects.equals(bioatividade, arvore.bioatividade)
-                && Objects.equals(paisagismo, arvore.paisagismo)
-                && Objects.equals(colheitaSementes, arvore.colheitaSementes)
-                && Objects.equals(producaoMudas, arvore.producaoMudas)
-                && Objects.equals(transplante, arvore.transplante)
-                && Objects.equals(agua, arvore.agua)
-                && Objects.equals(solos, arvore.solos);
+        return id == arvore.id && Objects.equals(nome, arvore.nome) && Objects.equals(descricao, arvore.descricao) && Objects.equals(imgUrl, arvore.imgUrl) && Objects.equals(sobre, arvore.sobre) && Objects.equals(biologia, arvore.biologia) && Objects.equals(ecologia, arvore.ecologia) && Objects.equals(consumo, arvore.consumo) && Objects.equals(cultivo, arvore.cultivo) && Objects.equals(referencias, arvore.referencias);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                id,
-                nome,
-                descricaoBotanica,
-                frutificacao,
-                dispersao,
-                aspectosEcologicos,
-                regeneracaoNatural,
-                dadosNutricionais,
-                formasConsumo,
-                composicao,
-                potenciaisBioprodutos,
-                bioatividade,
-                paisagismo,
-                colheitaSementes,
-                producaoMudas,
-                transplante,
-                agua,
-                solos);
+        return Objects.hash(id, nome, descricao, imgUrl, sobre, biologia, ecologia, consumo, cultivo, referencias);
     }
 }

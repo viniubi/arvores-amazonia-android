@@ -14,11 +14,11 @@ import com.example.ecoecho.R;
 import com.example.ecoecho.data.Arvore;
 import com.example.ecoecho.databinding.ItemTreeBinding;
 
-public class ArvoreAdapter extends ListAdapter<Arvore, ArvoreAdapter.ArvoreHolder> {
+public class MainAdapter extends ListAdapter<Arvore, MainAdapter.ArvoreHolder> {
     @Nullable
     private final OnItemClickListener listener;
 
-    protected ArvoreAdapter(@Nullable OnItemClickListener listener) {
+    protected MainAdapter(@Nullable OnItemClickListener listener) {
         super(new DiffCallback());
         this.listener = listener;
     }
@@ -60,7 +60,7 @@ public class ArvoreAdapter extends ListAdapter<Arvore, ArvoreAdapter.ArvoreHolde
                     .into(binding.ivFoto);
 
             binding.tvNome.setText(arvore.getNome());
-            binding.tvDescricao.setText(arvore.getDescricaoBotanica());
+            binding.tvDescricao.setText(arvore.getDescricao());
 
             if (listener != null) {
                 binding.getRoot().setOnClickListener(v ->

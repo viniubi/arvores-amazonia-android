@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ecoecho.R;
+import com.example.ecoecho.activity.arvore.ArvoreActivity;
 import com.example.ecoecho.data.Arvore;
 import com.example.ecoecho.data.source.local.AppDatabase;
 import com.example.ecoecho.data.source.local.ArvoreDao;
@@ -16,8 +17,8 @@ import com.example.ecoecho.databinding.ActivityMainBinding;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ArvoreAdapter.OnItemClickListener {
-    private ArvoreAdapter adapter;
+public class MainActivity extends AppCompatActivity implements MainAdapter.OnItemClickListener {
+    private MainAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements ArvoreAdapter.OnI
         ArvoreDao arvoreDao = AppDatabase.getDatabase(this).arvoreDao();
         MainPresenter presenter = new MainPresenter(this, new ApiController(), arvoreDao);
 
-        adapter = new ArvoreAdapter(this);
+        adapter = new MainAdapter(this);
         binding.rvArvores.setAdapter(adapter);
 
         binding.toolbar.setOnMenuItemClickListener(item -> {
@@ -55,7 +56,10 @@ public class MainActivity extends AppCompatActivity implements ArvoreAdapter.OnI
 
     @Override
     public void onSelecionarArvore(int id) {
+        Intent intent = new Intent(this, ArvoreActivity.class)
+                .putExtra(ArvoreActivity.EXTRA_ARVORE_ID, id);
 
+        startActivity(intent);
     }
 
     public void mostrarArvores(List<Arvore> arvores) {
