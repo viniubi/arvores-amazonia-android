@@ -1,21 +1,11 @@
 package com.example.ecoecho.activity.arvore;
 
-import static com.example.ecoecho.data.Aba.BIOLOGIA;
-import static com.example.ecoecho.data.Aba.CONSUMO;
-import static com.example.ecoecho.data.Aba.CULTIVO;
-import static com.example.ecoecho.data.Aba.ECOLOGIA;
-import static com.example.ecoecho.data.Aba.REFERENCIAS;
-import static com.example.ecoecho.data.Aba.SOBRE;
-
 import com.example.ecoecho.data.Aba;
 import com.example.ecoecho.data.Arvore;
 import com.example.ecoecho.data.source.local.ArvoreDao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ArvorePresenter {
     private final ArvoreActivity view;
@@ -33,19 +23,12 @@ public class ArvorePresenter {
     }
 
     private List<Aba> getAbasDisponiveis(Arvore arvore) {
-        LinkedHashMap<Aba, String> abaMap = new LinkedHashMap<>();
-        abaMap.put(SOBRE, arvore.getSobre());
-        abaMap.put(BIOLOGIA, arvore.getBiologia());
-        abaMap.put(ECOLOGIA, arvore.getEcologia());
-        abaMap.put(CONSUMO, arvore.getConsumo());
-        abaMap.put(CULTIVO, arvore.getCultivo());
-        abaMap.put(REFERENCIAS, arvore.getReferencias());
-
         List<Aba> abasDisponiveis = new ArrayList<>();
-        for (Map.Entry<Aba, String> entry : abaMap.entrySet()) {
-            String value = entry.getValue();
-            if (value != null && !value.trim().isEmpty()) {
-                abasDisponiveis.add(entry.getKey());
+
+        for (Aba aba : Aba.values()) {
+            String informacao = arvore.getInformacaoByAba(aba);
+            if (informacao != null && !informacao.trim().isEmpty()) {
+                abasDisponiveis.add(aba);
             }
         }
 

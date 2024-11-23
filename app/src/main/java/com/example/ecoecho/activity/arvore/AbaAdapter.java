@@ -26,22 +26,8 @@ public class AbaAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (abasDisponiveis.get(position)) {
-            case SOBRE:
-                return InformationFragment.newInstance(arvore.getSobre());
-            case BIOLOGIA:
-                return InformationFragment.newInstance(arvore.getBiologia());
-            case ECOLOGIA:
-                return InformationFragment.newInstance(arvore.getEcologia());
-            case CONSUMO:
-                return InformationFragment.newInstance(arvore.getConsumo());
-            case CULTIVO:
-                return InformationFragment.newInstance(arvore.getCultivo());
-            case REFERENCIAS:
-                return InformationFragment.newInstance(arvore.getReferencias());
-            default:
-                return InformationFragment.newInstance(null);
-        }
+        String informacao = arvore.getInformacaoByAba(abasDisponiveis.get(position));
+        return InformationFragment.newInstance(informacao);
     }
 
     @Override

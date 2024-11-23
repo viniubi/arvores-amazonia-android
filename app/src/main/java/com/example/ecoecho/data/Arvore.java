@@ -49,6 +49,32 @@ public class Arvore {
     @ColumnInfo(name = "referencias")
     @SerializedName("referencias")
     private String referencias;
+    @Nullable
+    @ColumnInfo(name = "figuras")
+    @SerializedName("figuras")
+    private String figuras;
+
+    @Nullable
+    public String getInformacaoByAba(Aba aba) {
+        switch (aba) {
+            case SOBRE:
+                return sobre;
+            case BIOLOGIA:
+                return biologia;
+            case ECOLOGIA:
+                return ecologia;
+            case CONSUMO:
+                return consumo;
+            case CULTIVO:
+                return cultivo;
+            case REFERENCIAS:
+                return referencias;
+            case FIGURAS:
+                return figuras;
+        }
+
+        return null;
+    }
 
     public int getId() {
         return id;
@@ -97,6 +123,11 @@ public class Arvore {
         return referencias;
     }
 
+    @Nullable
+    public String getFiguras() {
+        return figuras;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -137,16 +168,41 @@ public class Arvore {
         this.referencias = referencias;
     }
 
+    public void setFiguras(@Nullable String figuras) {
+        this.figuras = figuras;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Arvore arvore = (Arvore) o;
-        return id == arvore.id && Objects.equals(nome, arvore.nome) && Objects.equals(descricao, arvore.descricao) && Objects.equals(imgUrl, arvore.imgUrl) && Objects.equals(sobre, arvore.sobre) && Objects.equals(biologia, arvore.biologia) && Objects.equals(ecologia, arvore.ecologia) && Objects.equals(consumo, arvore.consumo) && Objects.equals(cultivo, arvore.cultivo) && Objects.equals(referencias, arvore.referencias);
+        return id == arvore.id
+                && Objects.equals(nome, arvore.nome)
+                && Objects.equals(descricao, arvore.descricao)
+                && Objects.equals(imgUrl, arvore.imgUrl)
+                && Objects.equals(sobre, arvore.sobre)
+                && Objects.equals(biologia, arvore.biologia)
+                && Objects.equals(ecologia, arvore.ecologia)
+                && Objects.equals(consumo, arvore.consumo)
+                && Objects.equals(cultivo, arvore.cultivo)
+                && Objects.equals(referencias, arvore.referencias)
+                && Objects.equals(figuras, arvore.figuras);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, descricao, imgUrl, sobre, biologia, ecologia, consumo, cultivo, referencias);
+        return Objects.hash(
+                id,
+                nome,
+                descricao,
+                imgUrl,
+                sobre,
+                biologia,
+                ecologia,
+                consumo,
+                cultivo,
+                referencias,
+                figuras);
     }
 }
