@@ -9,4 +9,8 @@
     <string name="cultivo">Cultivo</string>
     <string name="referencias">Referências</string>
     <string name="figuras">Figuras</string>
+    <string name="author_1">Vinícius Ubinski</string>
+    <string name="author_1_bio">Estudante de 6° semestre de Ciência da Computação e desenvolvedor Android. Minha árvore favorita é o Eucalipto, pois produz a madeira mais bonita no Minecraft.</string>
+    <string name="author_2">Natália Silva Machado</string>
+    <string name="author_2_bio">Estudante de 6° semestre de Ciência da Computação e concurseira. Minha árvore favorita é a Mexiriqueira porque o nome faz parecer que é uma árvore fofoqueira.</string>
 </resources>

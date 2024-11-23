@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ecoecho.R;
 import com.example.ecoecho.activity.arvore.ArvoreActivity;
+import com.example.ecoecho.activity.sobre.SobreActivity;
 import com.example.ecoecho.data.Arvore;
 import com.example.ecoecho.data.source.local.AppDatabase;
 import com.example.ecoecho.data.source.local.ArvoreDao;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnIte
     }
 
     private void redirecionarSobre() {
-
+        startActivity(new Intent(this, SobreActivity.class));
     }
 
     private void redirecionarRemoverAnuncios() {
