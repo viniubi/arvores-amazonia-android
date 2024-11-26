@@ -3,7 +3,6 @@ package com.example.ecoecho.activity.main;
 import com.example.ecoecho.data.Arvore;
 import com.example.ecoecho.data.source.local.ArvoreDao;
 import com.example.ecoecho.data.source.remote.ApiController;
-import com.example.ecoecho.misc.ArvoreDebug;
 
 import java.util.List;
 
@@ -16,15 +15,9 @@ public class MainPresenter {
         this.view = view;
         this.apiController = apiController;
         this.arvoreDao = arvoreDao;
-
-        inserirArvores();
     }
 
-    private void inserirArvores() {
-        arvoreDao.insertAll(ArvoreDebug.INSTANCE.getArvores());
-    }
-
-    public void buscarArvores() {
+    public void mostrarArvoresDatabase() {
         view.mostrarArvores(arvoreDao.getAll());
     }
 
@@ -32,13 +25,15 @@ public class MainPresenter {
         apiController.buscarArvores(new ApiController.OnBuscarArvores() {
             @Override
             public void onSucesso(List<Arvore> arvores) {
+                arvoreDao.deleteAll();
                 arvoreDao.insertAll(arvores);
-                buscarArvores();
+                mostrarArvoresDatabase();
             }
 
             @Override
             public void onFalha(String erro) {
                 view.mostrarErro(erro);
+                mostrarArvoresDatabase();
             }
         });
     }

@@ -1,11 +1,14 @@
 package com.example.ecoecho.data.source.remote;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.ecoecho.data.Arvore;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.net.UnknownHostException;
 import java.util.List;
 
 import retrofit2.Call;
@@ -15,7 +18,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiController {
-    public static final String BASE_URL = ""; // TODO
+    public static final String BASE_URL = "https://fasnei20xx.pythonanywhere.com/";
 
     public void buscarArvores(OnBuscarArvores callback) {
         Retrofit retrofit = new Retrofit.Builder()
@@ -37,9 +40,12 @@ public class ApiController {
                         JsonObject jsonObject = JsonParser.parseString(response.errorBody().string())
                                 .getAsJsonObject();
 
-                        callback.onFalha(jsonObject.get("message").getAsString());
+                        String message = jsonObject.get("message").getAsString();
+                        callback.onFalha(message);
+                        Log.e(ApiController.class.getSimpleName(), "onResponse: " + message);
                     } catch (Exception e) {
                         callback.onFalha(e.getMessage());
+                        Log.e(ApiController.class.getSimpleName(), "onResponse: " + e.getMessage());
                     }
                 }
             }
@@ -47,7 +53,13 @@ public class ApiController {
             @Override
             public void onFailure(@NonNull Call<List<Arvore>> call,
                                   @NonNull Throwable throwable) {
-                callback.onFalha(throwable.getMessage());
+                if (throwable instanceof UnknownHostException) {
+                    callback.onFalha("Erro de rede, verifique sua conexão com a internet!");
+                } else {
+                    callback.onFalha(throwable.getMessage());
+                }
+
+                Log.e(ApiController.class.getSimpleName(), "onFailure: " + throwable.getMessage());
             }
         });
     }

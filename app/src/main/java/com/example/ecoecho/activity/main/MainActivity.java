@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements MainAdapter.OnIte
             return false;
         });
 
-        presenter.buscarArvores();
+        presenter.buscarDadosApi();
     }
 
     @Override
