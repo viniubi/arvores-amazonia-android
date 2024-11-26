@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.text.HtmlCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.ecoecho.databinding.FragmentInformationBinding;
+
+import io.noties.markwon.Markwon;
+import io.noties.markwon.ext.tables.TablePlugin;
+import io.noties.markwon.image.glide.GlideImagesPlugin;
 
 public class InformationFragment extends Fragment {
     public static final String EXTRA_INFORMACAO = "info";
@@ -36,7 +39,12 @@ public class InformationFragment extends Fragment {
                 container,
                 false);
 
-        binding.tvInfo.setText(HtmlCompat.fromHtml(informacao, HtmlCompat.FROM_HTML_MODE_COMPACT));
+        Markwon markwon = Markwon.builder(requireContext())
+                .usePlugin(GlideImagesPlugin.create(requireContext()))
+                .usePlugin(TablePlugin.create(requireContext()))
+                .build();
+
+        markwon.setMarkdown(binding.tvInfo, informacao);
 
         return binding.getRoot();
     }

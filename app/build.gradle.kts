@@ -63,4 +63,9 @@ dependencies {
 
     // Outros
     implementation(libs.glide)
+
+    // Markwon
+    implementation(libs.core)
+    implementation(libs.image.glide)
+    implementation(libs.ext.tables)
 }
